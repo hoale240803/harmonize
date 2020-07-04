@@ -1,0 +1,25 @@
+<h2>Employee Details</h2> 
+
+<hr/>
+<div *ngIf="product">
+  <div>
+    <label><b>Name: </b></label> {{product.name}}
+  </div>
+  <div>
+    <label><b>Image: </b></label> {{product.image}}
+  </div>
+  <div>
+    <label><b>Price: </b></label> {{product.price}}
+  </div>
+  <div>
+    <label><b>Description: </b></label> {{product.description}}
+  </div>
+  <div>
+    <label><b>States: </b></label> {{product.states}}
+  </div>
+ 
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Product List</button><br>

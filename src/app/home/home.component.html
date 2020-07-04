@@ -1,0 +1,35 @@
+<div class="container">
+  <header class="jumbotron">
+    <p>{{ content }}</p>
+  </header>
+</div>
+<div class="panel panel-primary" *ngIf="showModeratorBoard"  >
+  <div class="panel-heading">
+    <h2>Product List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Prices</th>
+          <th>States</th>
+          <th>Descriptions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | async">
+          <td>{{product.name}}</td>
+          <td>{{product.image}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.states}}</td>
+          <td>{{product.description}}</td>
+          <td><button (click)="deleteProduct(product.product_id)" class="btn btn-danger">Delete</button>
+              <button (click)="productDetails(product.product_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
