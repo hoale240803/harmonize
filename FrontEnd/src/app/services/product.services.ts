@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductServices {
 
-  private baseUrl = 'https://harmonize-services.azurewebsites.net/products';
+  private baseUrl = 'http://104.215.250.72:8080/hoal/products';
 
   constructor(private http: HttpClient) { }
 

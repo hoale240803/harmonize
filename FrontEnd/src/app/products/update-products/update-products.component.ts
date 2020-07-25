@@ -13,35 +13,30 @@ export class UpdateProductsComponent implements OnInit {
   id: number;
   product: Product;
   submitted = false;
-  constructor(private route: ActivatedRoute,private router: Router,
-    private productService: ProductServices) { }
-
+  constructor(private route: ActivatedRoute, private router: Router,
+  private productService: ProductServices) { }
   ngOnInit() {
     this.product = new Product();
-
     this.id = this.route.snapshot.params['id'];
-    
     this.productService.getProduct(this.id)
       .subscribe(data => {
         console.log(data)
         this.product = data;
       }, error => console.log(error));
   }
-
   updateProduct() {
     this.productService.updateProduct(this.id, this.product)
       .subscribe(data => console.log(data), error => console.log(error));
     this.product = new Product();
     this.gotoList();
   }
-
   onSubmit() {
     this.submitted = true;
-    this.updateProduct();    
+    this.updateProduct();
   }
 
   gotoList() {
-    this.router.navigate(['/products']);
+    this.router.navigate(['home']);
   }
 
 }

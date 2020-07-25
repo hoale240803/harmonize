@@ -9,26 +9,20 @@ import { ProductServices } from 'src/app/services/product.services';
   styleUrls: ['./details-products.component.css']
 })
 export class DetailsProductsComponent implements OnInit {
-
   id: number;
- product:Product;
-
-  constructor(private route: ActivatedRoute,private router: Router,
-    private productService:ProductServices) { }
-
+  product: Product;
+  constructor(private route: ActivatedRoute, private router: Router,
+    private productService: ProductServices) { }
   ngOnInit() {
     this.product = new Product();
-
     this.id = this.route.snapshot.params['id'];
-    
     this.productService.getProduct(this.id)
       .subscribe(data => {
         console.log(data)
         this.product = data;
       }, error => console.log(error));
   }
-
-  list(){
+  list() {
     this.router.navigate(['home']);
   }
 }

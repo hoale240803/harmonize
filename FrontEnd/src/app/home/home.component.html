@@ -3,7 +3,7 @@
     <p>{{ content }}</p>
   </header>
 </div>
-<div class="panel panel-primary" *ngIf="showModeratorBoard"  >
+<div class="panel panel-primary" *ngIf="showModeratorBoard">
   <div class="panel-heading">
     <h2>Product List</h2>
   </div>
@@ -26,7 +26,10 @@
           <td>{{product.states}}</td>
           <td>{{product.description}}</td>
           <td><button (click)="deleteProduct(product.product_id)" class="btn btn-danger">Delete</button>
-              <button (click)="productDetails(product.product_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            <button (click)="updateProduct(product.product_id)" class="btn btn-info"
+              style="margin-left: 10px">Update</button>
+            <button (click)="productDetails(product.product_id)" class="btn btn-info"
+              style="margin-left: 10px">Details</button>
           </td>
         </tr>
       </tbody>

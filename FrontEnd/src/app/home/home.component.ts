@@ -17,10 +17,8 @@ export class HomeComponent implements OnInit {
   products: Observable<Product[]>;
   private roles: string[];
   showModeratorBoard = false;
- 
 
   constructor(private userService: UserService, private productServices: ProductServices, private router: Router, private tokenStorageService: TokenStorageService) { }
-
   ngOnInit() {
     this.userService.getPublicContent().subscribe(
       data => {
@@ -34,7 +32,6 @@ export class HomeComponent implements OnInit {
     this.roles = user.roles;
     this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
     this.reloadData();
-
   }
 
   reloadData() {
@@ -53,5 +50,9 @@ export class HomeComponent implements OnInit {
 
   productDetails(id: number){
     this.router.navigate(['products/details', id]);
+  }
+  
+  updateProduct(id:number){
+    this.router.navigate(['products/update', id]);
   }
 }
